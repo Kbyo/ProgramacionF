@@ -1,0 +1,57 @@
+pwd	Imprime la Ubicacion Actual.
+	Ej. pwd
+
+ls	Lista de los contenidos del directorio.
+	Ej. ls Documents
+
+cd	Mover un directorio a otro.
+	Ej. cd ProgFortran
+
+file	Obtener informacion sobre que tipo de archivo es un archivo o
+	directorio especifico.
+	Ej. file notas.txt
+
+ls -a	Lista del contenido de un directorio, incluyendo archivos
+   	ocultos.
+	Ej. ls-a Documents
+
+man	Te aparece el manual de un comando en especifico.
+	Ej. man ls
+
+mkdir	Crea un directorio.
+	Ej. mkdir Notas
+
+rmdir	Elimina un directorio.
+	Ej. rmdir Notas
+
+touch	Crea un archivo en blanco.
+	Ej. touch Ejemplo1
+
+cp	Copia un archivo del directorio.
+	Ej. cp Ejemplo1
+
+mv	Mueve un archivo del directorio(tambien puede ser usado para
+	renombrar).
+	Ej. mv Notas
+
+rm	Elimina un archivo
+	Ej. rm Ejemplo 1
+
+vi	Editas el archivo que menciones.
+	Ej. vi notas.txt
+	Puedes cambiar de la funcion "editar a la funcion "insertar" con la tecla "i"
+
+cat	Este comando hace visible el texto del archivo.
+	Ej. cat notas.txt
+
+less	Hace visible el contenido de un texto, se recomienda para textos mas grandes ya que es 		posible moverte entre hojas
+	Ej. less notas.txt
+
+chmod	Cambia los permisos que tiene una persona respecto a un archivo.
+	Primero va el nombre del usuario + o - para indivar si remueves o das permiso.
+	r para que tengan permisos de leer.
+	w si tendran permisos de escribir.
+	x si se les otorgara permiso de ejecutar.
+	Ej. cabello1+w
+
+	

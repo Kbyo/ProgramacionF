@@ -1,0 +1,108 @@
+\documentclass{article}
+
+% set font encoding for PDFLaTeX or XeLaTeX
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+% used in maketitle
+\title{Actividad 1}
+\author{Cabello Lopez Marco Antonio\\
+Departamento de Fisica \\
+Universidad de Sonora}
+\date{1 de Septiembre de 2017}
+
+
+% Enable SageTeX to run SageMath code right inside this LaTeX file.
+% documentation: http://mirrors.ctan.org/macros/latex/contrib/sagetex/sagetexpackage.pdf
+% \usepackage{sagetex}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Introducción}
+Esta actividad nos describe como leer un manual de Linux en el nos enseñan\\
+una forma de utilizar la terminal y sus conceptos básicos, asi como  \\
+una introducción a los comandos Bash que son la base de un optimo uso \\
+de Linux.
+\subsection{Comandos Bash}
+Son un conjunto de parametros utilizados para la administración y\\
+configuración del sistema, asi como un conjunto de combinaciones \\
+especiales de teclas para realizar tareas en entornos Linux      \\
+mediante un interperete de comandos Bash.
+
+
+\subsubsection{Ejemplos de comandos de Bash}
+\begin{verbatim}
+Comando		Descripcion
+ls		Enlista los  archivos dentro de un directorio.
+		Ej. ls -l /home/cabello1/ProgFortran
+
+echo		Es usado para para mandar mensajes a la terminal o archivos.
+		Ej. echo hola mundo
+
+pwd		Es usado para saber el directorio en el que te encuentras
+		trabajando.
+
+file		Te dice de que tipo es un archivo en particular
+		Ej. file notas.txt
+
+man		Abre el manual del comando que pones despues de man
+		Ej. man ls
+
+mkdir		Este comando crea un directorio en la ubicacacion que te
+		encuentras.
+		Ej. mkdir ProgFortran
+
+rmdir		Remueve/elimina el directorio que nombras.
+		Ej. rmdir ProgFortran
+
+rm		Remueve/elimina el archivo que nombres.
+		Ej. rm notas.txt
+
+touch		Si se pone un nombre de archivo que no exista, creara un
+		archivo en blanco con ese nombre.
+
+cp		Copia un archivo o directorio en el lugar indicado.
+		Ej. cp notas.txt /home/cabello1/ProgFortran
+
+mv		Mueve un archivo o directorio al lugar indicado.
+		Ej. mv notas.txt/home/cabello1/ProgFortran/Notas
+
+vi		Editas el archivo que menciones.
+		Ej. vi notas.txt
+		Puedes cambiar de la funcion "editar" a funcion
+		"insertar" con la tecla "i".
+
+cat		Este comando hace visible el texto del archivo.
+		Ej. cat notas.txt
+
+less		Hace visible el contenido de un texto, se
+		recomienda para textos mas grandes ya que
+		es posible moverte entre hojas.
+		Ej. less notas.txt
+
+chmod		Cambia los permisos que tiene una persona respecto
+		a un archivo.
+		Primero va el nombre del usuario
+		+ o - para indicar si remueves o das permiso.
+		r para que tengan permisos de leer
+		w si tendran permisos de escribir
+		x si se les otorgara permiso de ejecutar
+		Ej. chmod cabello1+w
+
+		
+		
+
+\end{verbatim}
+\section{Bibliografía}
+http://ryanstutorials.net/linuxtutorial/
+
+
+\end{document}

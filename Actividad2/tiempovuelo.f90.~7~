@@ -1,0 +1,25 @@
+program tiempo_vuelo
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos las variables
+  real :: a, v0, tv
+ 
+
+  ! Leer valores para el ángulo a, y la velocidad inicial v desde la terminal
+  write(*,*) 'Dame el ángulo y la rapidez inicial'
+  read(*,*) a, v0
+
+  ! convertimos de grados a radianes
+  a = a * pi / 180.0
+
+  ! Ecuacion del tiempo de vuelo
+  tv = 2.0 * v0 * sin(a) / g
+
+  ! escribimos el resultado en la pantalla
+  write(*,*) 'tiempo de vuelo es = ', tv, ' segundos'
+
+end program tiempo_vuelo

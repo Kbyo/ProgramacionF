@@ -1,0 +1,163 @@
+\documentclass{article}
+
+% set font encoding for PDFLaTeX or XeLaTeX
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+% used in maketitle
+\title{Actividad 2}
+\author{Cabello Lopez Marco Antonio \\
+ Departamento de Fisica \\
+ Universidad de Sonora}
+\date{13 de Septiembre del 2017}
+
+% Enable SageTeX to run SageMath code right inside this LaTeX file.
+% documentation: http://mirrors.ctan.org/macros/latex/contrib/sagetex/sagetexpackage.pdf
+% \usepackage{sagetex}
+
+\begin{document}
+\maketitle
+%comentarios
+
+\section{Introduccion}
+Movimiento de Proyectiles
+\subsection{Archivo proyectil}
+Utilizamos esté programa para obtener datos generales sobre el movimiento de proyectiles.
+\begin{verbatim}
+program projectile
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos las variables
+  real :: a, t, u, x, y
+  real :: theta, v, vx, vy
+
+  ! Leer valores para el ángulo a, el tiempo t, y la velocidad inicial u desde la terminal
+  write(*,*) 'Dame el ángulo, el tiempo y la rapidez inicial'
+  read(*,*) a, t, u
+
+  ! convirtiendo ángulo a radianes
+  a = a * pi / 180.0
+  
+  ! las ecuaciones de la posición en x y y
+  x = u * cos(a) * t
+  y = u * sin(a) * t - 0.5 * g * t * t
+
+  ! La velocidad al tiempo t
+  vx = u * cos(a)
+  vy = u * sin(a) - g * t
+  v = sqrt(vx * vx + vy * vy)
+  theta = atan(vy / vx) * 180.0 / pi
+ 
+ ! escribiendo el resultado en la pantalla
+  write(*,*) 'x: ',x,'  y: ',y
+  write(*,*) 'v: ',v,'  theta: ',theta
+
+end program projectile
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$45$, $t$=$1$, y $u$=$31$ nos dio los datos:
+$x$ = $21.9203091$, $y$ = $17.0203094 $, $v$ = $25.0479908$, y $\Theta$ = $28.9393463$
+\subsection{Programa del Tiempo de vuelo}
+Este programa lo utilizamos para obtener el tiempo de vuelo.
+\begin{verbatim}
+program tiempovuelo
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos las variables
+  real :: a, v0, tv
+ 
+
+  ! Leer valores para el ángulo a, y la velocidad inicial v desde la terminal
+  write(*,*) 'Dame el ángulo y la rapidez inicial'
+  read(*,*) a, v0
+
+  ! convertimos de grados a radianes
+  a = a * pi / 180.0
+
+  ! Ecuacion del tiempo de vuelo
+  tv = 2.0 * v0 * sin(a) / g
+
+  ! escribimos el resultado en la pantalla
+  write(*,*) 'tiempo de vuelo es = ', tv
+
+end program tiempovuelo
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$45$ y $v0$=$10$ nos dio un tiempo de vuelo $tv$=$1.44307506 $
+\subsection{Programa de la Altura maxima}
+Utilizamos este programa para conseguir la altura maxima.
+\begin{verbatim}
+program alturamaxima
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos variables
+  real :: a, v0, h
+
+  write(*,*) 'Dame el ángulo, y la velocidad inicial'
+  read(*,*) a, v0
+
+  ! convirtiendo angulo a radianes
+  a = a * pi / 180.0
+
+  ! ecuacion de la velocidad final para la altura maxima
+  h= (v0**2 * (sin (a))**2/(2 * g))
+  
+  ! escribiendo el resultado en la pantalla
+  write(*,*) 'la altura maxima es = ', h, ' metros'
+
+end program alturamaxima
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$30$, y $v0$=$21$ nos dio una altura maxima $h$=$5.62500000$
+\subsection{Programa de la Trayectoria maxima}
+Utilizamos este programa para obtener la trayectoria maxima en $x$
+\begin{verbatim}
+program xmax
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos las variables
+  real :: a, v0, x
+  
+  write(*,*) 'Dame el ángulo y la velocidad inicial'
+  read(*,*) a, v0
+
+  ! convirtiendo angulo a radianes
+  a = a * pi / 180.0
+
+  ! ecuacion de la trayectoria maxima
+  x = (v0**2 * (sin (2 * a)))/g
+
+  ! escribiendo el resultado en la pantalla
+  write(*,*) 'la trayectoria maxima en x es = ', x, 'metros'
+
+end program xmax
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$15$, y $v0$=$60$ nos da una trayectoria maxima $x$=$183.673462$
+\subsection{Conclusión}
+Estos programas son muy utiles al momento de calcular valores en el movimiento del tiro parabolico y de ejemplo para la programacion de  los mismos.
+\subsection{Bibliografia}
+$https://en.wikipedia.org/wiki/Projectile_motion$
+\end{document}

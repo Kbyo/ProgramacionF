@@ -1,0 +1,188 @@
+\documentclass{article}
+
+% set font encoding for PDFLaTeX or XeLaTeX
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+% used in maketitle
+\title{Evaluacion 1}
+\author{Cabello Lopez Marco Antonio\\
+Departamento de Fisica \\
+Universidad de Sonora}
+\date{Hermosilo, Sonora a Lunes 30 de octubre del 2017}
+
+
+% Enable SageTeX to run SageMath code right inside this LaTeX file.
+% documentation: http://mirrors.ctan.org/macros/latex/contrib/sagetex/sagetexpackage.pdf
+% \usepackage{sagetex}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Problema 1: Esfera}
+\begin{verbatim}
+program ESFERA
+
+! Declaracion de tipo de las variables.
+  IMPLICIT NONE   
+
+  integer :: ierr
+  character(1) :: yn
+  real :: RADIO, AREA, VOLUMEN
+  real, parameter :: pi = 3.141592653589793
+
+  interactive_loop: DO
+
+! Impresion en pantalla.
+    WRITE (*,*) 'Enter radius of the sphere..'
+    READ (*,*,IOSTAT=ierr) RADIO
+
+! Ingreso de datos.
+    IF (ierr /= 0) THEN
+      WRITE(*,*) 'Error, invalid input.'
+      CYCLE interactive_loop
+    END IF
+
+! Calculos.
+    AREA = 4*pi * (RADIO**2)
+    VOLUMEN= (4/3)*pi*(RADIO**3)
+
+! Impresion del resultado.
+    WRITE (*,'(1x,a7,f6.2,5x,a7,f6.2,5x,a5,f6.2)') &
+      'RADIO=',RADIO,'AREA=',AREA,'VOLUMEN=',VOLUMEN
+
+    yn = ' '
+    yn_loop: DO
+      WRITE(*,*) 'Perform another calculation? y[n]'
+      READ(*,'(a1)') yn
+      IF (yn=='y' .OR. yn=='Y') EXIT yn_loop
+      IF (yn=='n' .OR. yn=='N' .OR. yn==' ') EXIT interactive_loop
+    END DO yn_loop
+
+  END DO interactive_loop
+
+! Finalizacion del programa.
+END PROGRAM ESFERA
+
+\end{verbatim}
+
+\section{Problema 2: Medias}
+\begin{verbatim}
+PROGRAM MEDIAS
+
+!Declaracion de las variables
+IMPLICIT NONE
+INTEGER :: sumatory, x, tell
+REAL :: SUMATORIAARITMETICA, SUMATORIAARMONICA, harmony, fx, fa, fb
+
+!Condiciones del programa
+PRINT*, "Este programa realiza las medias de una sumatoria, presione 0 para finalizar el proceso"
+OPEN(UNIT=10, FILE="SumData.DAT", STATUS='unknown')
+
+sumatory = 0
+tell = 0
+harmony = 0
+
+!Desarrollo del programa
+ DO
+  PRINT*, "Add:"
+  READ*, x
+  IF (x == 0) THEN
+   EXIT
+ ELSE
+sumatory = sumatory + x
+tell = tell + 1
+fx = float(x)
+fx = 1/fx
+harmony = harmony + fx
+
+ END IF
+ WRITE(10,*) x
+ END DO
+fb = float(sumatory)
+fa = float(tell)
+SUMATORIAARITMETICA = fb / fa
+SUMATORIAARMONICA = fa / harmony
+
+
+PRINT*, "Sumatoria =", sumatory
+WRITE(10,*) "Sumatoria =", sumatory
+WRITE(10,*)' '
+PRINT*, "Media aritmetica =", SUMATORIAARITMETICA
+WRITE(10,*) "Media aritmetica =", SUMATORIAARITMETICA
+WRITE(10,*) ' '
+PRINT*, "Media armonica =", SUMATORIAARMONICA
+WRITE(10,*) "Media armonica =", SUMATORIAARMONICA
+WRITE(10,*) ' '
+
+
+close(10)
+
+! Finalizacion del programa.
+END PROGRAM MEDIAS
+
+
+\end{verbatim}
+
+\section{Problema 3: Leibniz}
+\begin{verbatim}
+PROGRAM LEIBNIZ
+
+!Declaracion de las variables
+ IMPLICIT NONE
+INTEGER :: i
+REAL :: n, iteracion, pi
+
+!Condiciones del programa
+  pi = 1
+  iteracion = 1
+ WRITE(*,*) 'El valor de pi/4 segun las repeticiones:'
+
+!Desarrollo del programa
+     DO i=1, 50
+     iteracion = iteracion * (-1)
+     n = 2 * i + 1
+     n = 1 / n
+     n = n * (iteracion)
+     pi = pi + n
+	IF (i.EQ.10) THEN
+	WRITE(*,*) ' '
+	WRITE(*,*) '10:', pi
+        END IF
+
+	IF (i.EQ.20) THEN
+	WRITE(*,*) ' '
+	WRITE(*,*) '20:', pi
+        END IF
+
+	IF (i.EQ.30) THEN
+	WRITE(*,*) ' '
+	WRITE(*,*) '30:', pi
+        END IF
+
+	IF (i.EQ.40) THEN
+	WRITE(*,*) ' '
+	WRITE(*,*) '40:', pi
+        END IF
+
+	IF (i.EQ.50) THEN
+	WRITE(*,*) ' '
+	WRITE(*,*) '50:', pi
+        END IF
+
+END DO
+
+! Finalizacion del programa.
+END PROGRAM LEIBNIZ
+
+\end{verbatim}
+
+
+\end{document}
